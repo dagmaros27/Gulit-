@@ -4,7 +4,7 @@ import { Container, Row, Col } from "react-bootstrap";
 const Footer = () => {
   const d = new Date();
   return (
-    <Container>
+    <Container className="">
       <Row>
         <Col className="text-center py-3">
           Copyright &copy;Dagmaros {d.getFullYear()}
