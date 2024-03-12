@@ -1,5 +1,3 @@
-// reducers/product.js
-import { listProducts } from "../actions/product";
 import { createSlice } from "@reduxjs/toolkit";
 
 const productSlice = createSlice({
