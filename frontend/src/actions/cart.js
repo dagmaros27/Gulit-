@@ -27,3 +27,22 @@ export const addToCart = createAsyncThunk(
     }
   }
 );
+
+export const removeFromCart = createAsyncThunk(
+  "removeFromCart",
+  async (id, { dispatch, getState }) => {
+    try {
+      dispatch({
+        type: "CART_REMOVE_ITEM",
+        payload: id,
+      });
+
+      localStorage.setItem(
+        "cart-items",
+        JSON.stringify(getState().cart.cartItems)
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);

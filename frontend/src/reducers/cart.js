@@ -7,7 +7,7 @@ const cartSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase("CART_ADD_ITEM", (state, action) => {
       const item = action.payload;
-      const existItem = state.cartItems.find((x) => x.product === item);
+      const existItem = state.cartItems.find((x) => x.product === item.product);
       if (existItem) {
         return {
           ...state,
@@ -21,6 +21,15 @@ const cartSlice = createSlice({
           cartItems: [...state.cartItems, item],
         };
       }
+    });
+
+    builder.addCase("CART_REMOVE_ITEM", (state, action) => {
+      return {
+        ...state,
+        cartItems: state.cartItems.filter(
+          (item) => item.product !== action.payload
+        ),
+      };
     });
   },
 });
