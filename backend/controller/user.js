@@ -5,6 +5,7 @@ import { generateToken } from "../utils/generateToken.js";
 const asyncUser = asyncHandler(async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
+  console.log(email, password);
   const user = await User.findOne({ email });
   if (user && (await user.matchPassword(password))) {
     res.send({

@@ -5,6 +5,7 @@ import { Container } from "react-bootstrap";
 import HomeScreen from "./screens/HomeScreen";
 import ProductScreen from "./screens/ProductScreen";
 import CartScreen from "./screens/CartScreen";
+import LoginScreen from "./screens/LoginScreen";
 
 const App = () => {
   return (
@@ -13,9 +14,10 @@ const App = () => {
       <main>
         <Container>
           <Routes>
-            <Route element={<HomeScreen />} path="/" />
+            <Route element={<LoginScreen />} path="/login" />
             <Route element={<ProductScreen />} path="/products/:id" />
             <Route element={<CartScreen />} path="/cart/:id?" />
+            <Route element={<HomeScreen />} path="/" />
           </Routes>
         </Container>
       </main>
