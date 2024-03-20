@@ -31,6 +31,26 @@ const cartSlice = createSlice({
         ),
       };
     });
+
+    builder.addCase("CART_SAVE_SHIPPING_ADDRESS", (state, action) => {
+      return {
+        ...state,
+        shippingAddress: action.payload,
+      };
+    });
+    builder.addCase("CART_SAVE_PAYMENT_METHOD", (state, action) => {
+      return {
+        ...state,
+        paymentMethod: action.payload,
+      };
+    });
+
+    builder.addCase("GET_PRICES", (state, action) => {
+      return {
+        ...state,
+        ...action.payload,
+      };
+    });
   },
 });
 

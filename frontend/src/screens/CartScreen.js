@@ -20,6 +20,7 @@ const CartScreen = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
   const { cartItems } = cart;
+  const user = useSelector((state) => state.user);
 
   const id = params.id;
   const quantity = location.search ? Number(location.search.split("=")[1]) : 1;
@@ -29,7 +30,11 @@ const CartScreen = () => {
   };
 
   const checkOutHandler = () => {
-    navigate("/login?redirect=shipping");
+    if (user.userInfo) {
+      navigate("/shipping");
+    } else {
+      navigate("/login?redirect=shipping");
+    }
   };
   useEffect(() => {
     if (id) {

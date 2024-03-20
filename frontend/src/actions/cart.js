@@ -46,3 +46,49 @@ export const removeFromCart = createAsyncThunk(
     }
   }
 );
+
+export const saveShippingAddress = createAsyncThunk(
+  "saveShippingAddress",
+  async (data, { dispatch }) => {
+    try {
+      dispatch({
+        type: "CART_SAVE_SHIPPING_ADDRESS",
+        payload: data,
+      });
+
+      localStorage.setItem("shipping-address", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
+export const savePaymentMethod = createAsyncThunk(
+  "savePaymentMethod",
+  async (data, { dispatch }) => {
+    try {
+      dispatch({
+        type: "CART_SAVE_PAYMENT_METHOD",
+        payload: data,
+      });
+
+      localStorage.setItem("payment-method", JSON.stringify(data));
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
+
+export const getPrices = createAsyncThunk(
+  "calculatePrices",
+  async (data, { dispatch }) => {
+    try {
+      dispatch({
+        type: "GET_PRICES",
+        payload: data,
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+);
